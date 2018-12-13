@@ -1,0 +1,10 @@
+/* pages/me/index.wxss */
+.userinfo{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+.userinfo-nickname{
+  text-align: center;
+}

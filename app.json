@@ -1,0 +1,45 @@
+{
+  "pages":[
+    "pages/home/index",
+    "pages/category/logs",
+    "pages/cart/index",
+    "pages/me/index"
+    
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fbf9fe",
+    "navigationBarTitleText": "小黑手",
+    "navigationBarTextStyle":"black",
+    "backgroundColor":"#fbf9fe"
+  },
+  "tabBar": {
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "iconPath": "image/home.png",
+        "selectedIconPath": "image/home-hl.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/category/logs",
+        "iconPath": "image/category.png",
+        "selectedIconPath": "image/category-hl.png",
+        "text": "热卖"
+      },
+      {
+        "pagePath": "pages/cart/index",
+        "iconPath": "image/cart.png",
+        "selectedIconPath": "image/cart-hl.png",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/me/index",
+        "iconPath": "image/me.png",
+        "selectedIconPath": "image/me-hl.png",
+        "text": "我的"
+      }
+    ]
+  }
+}
