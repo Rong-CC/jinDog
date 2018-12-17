@@ -11,7 +11,12 @@ Page({
     logos:[],
     pageRow:[],
     quicks: [],
-    swipers:[]
+    swipers:[],
+    indicatorDots:true,
+    vertical:false,
+    autoplay:true,
+    interval:3000,
+    duration:500
   },
 
   /**
