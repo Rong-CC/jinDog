@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "infocell": "/components/infocell/index",
+    "IOU": "/components/IOU/index"
+  }
+}

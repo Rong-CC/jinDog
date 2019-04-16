@@ -1,17 +1,18 @@
 {
-  "pages":[
+  "pages": [
     "pages/home/index",
-    "pages/category/logs",
+    "pages/category/index",
     "pages/cart/index",
-    "pages/me/index"
-    
+    "pages/me/index",
+    "pages/list/index",
+    "pages/detail/index"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fbf9fe",
     "navigationBarTitleText": "小黑手",
-    "navigationBarTextStyle":"black",
-    "backgroundColor":"#fbf9fe"
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#fbf9fe"
   },
   "tabBar": {
     "backgroundColor": "#fff",
@@ -23,7 +24,7 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/category/logs",
+        "pagePath": "pages/category/index",
         "iconPath": "image/category.png",
         "selectedIconPath": "image/category-hl.png",
         "text": "热卖"

@@ -1,0 +1,26 @@
+<view class='popupDom' data-target="self" catchtap='hiddenBaitianView'  hidden='{{hideBaitiao}}'>
+  <view class='pop_main'>
+     <!-- 头部 -->
+  <view class='pop_header'>
+    打白条购买
+    <text data-target="self" catchtap='hiddenBaitianView'>x</text>
+  </view>
+  <!-- 中间 -->
+    <view class='pop_body'>
+      <block wx:for='{{list}}' wx:key="index">
+        <view class='section_item' catchtap='slelectItem' data-index="{{index}}">
+          <image wx:if="{{item.select}}"  src='/image/selected.png'/>
+          <image wx:else src="/image/unselect.png" />
+          <view class='detail'>
+            <text class='dec'> {{item.desc}}</text>
+            <text class='tip'>{{item.tip}}</text>
+          </view>
+        </view>
+      </block>
+    </view>
+    <!-- 尾部 -->
+    <view class='pop_footer'>
+      <button bindtap="mackBaitiao">立即打白条</button>
+    </view>
+  </view>
+</view>

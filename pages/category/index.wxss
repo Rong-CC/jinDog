@@ -1,0 +1,57 @@
+/* pages/category/logs.wxss */
+.caregory{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background: #fff;
+  /* background: red; */
+}
+.nav-left{
+  width:220rpx;
+  height: 100%; 
+  background: #f7f7f7;
+
+}
+::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.nav-left-items{
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26rpx;
+}
+.nav-left-item-active{
+  color: red;
+  background: #fff;
+}
+
+.nav-right{
+  flex: 1;
+
+}
+.jd-caregory-wrap{
+  display: flex;
+  overflow: hidden;
+  flex-wrap: wrap;
+  margin: 40rpx 16rpx 0;
+  /* width: 100%;  */
+}
+.jd-category-style{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 160rpx;
+  margin-bottom: 20rpx;
+}
+.list_img{
+  width: 140rpx;
+  height: 130rpx;
+}
+.list_text{
+  font-size: 26rpx;
+  color: gray;
+}

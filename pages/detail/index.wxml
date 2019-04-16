@@ -1,0 +1,32 @@
+<!--pages/detail/index.wxml-->
+<view class='detail'>
+  <view class='mod_lider'>
+    <swiper
+    indicator-dots='true'
+    indicator-color='rgba(255,255,255,.6)'
+    indicator-active-color='#e93d3d'
+    style='width:100%;height:820rpx;'
+    >
+      <block wx:for="{{partData.loopImgUrl}}" wx:key="{{index}}">
+        <swiper-item>
+          <image class='swiper-item' src='{{item}}' mode="aspectFill"/>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class='buy_area'>
+    <view class='textWrap'>
+      <text>{{partData.title}}</text>
+    </view>
+    <view class='priceWrap'>
+      <text>￥{{partData.price}}</text>
+    </view>
+    <!--支付-->
+    <infocell title="支付" desc="{{baitiaoSelectItem.desc}}"
+    bind:popView="popBaitiao"
+    ></infocell>
+    <!--已选-->
+    <infocell title="已选" desc="{{partData.count}}件"  bind:popView="popBuy"></infocell>
+    <IOU bind:updateSelect="updateSelectItem" list="{{baitiao}}" hideBaitiao="{{hideBaitiao}}"></IOU>
+  </view>
+</view>
