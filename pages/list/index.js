@@ -134,6 +134,7 @@ Page({
   },
   switchProlistDetail(e){
     let index = e.currentTarget.dataset.index
+    console.log(index,'index')
     wx.navigateTo({
       url: '/pages/detail/index?id=' + this.data.prolist[index].id,
     })

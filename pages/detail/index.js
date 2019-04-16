@@ -11,16 +11,17 @@ Page({
     hideBaitiao:true,
     baitiaoSelectItem:{
       desc: "【白条支付】 首单享立减优惠"
-    }
+    },
+    hideBuy: true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.id);
-    // const id = options.id;
-    const id = "4a4c8b8e4d8c22a97a94b46f58c1f3b9"
+    // console.log(options.id);
+    const id = options.id;
+    // const id = "4a4c8b8e4d8c22a97a94b46f58c1f3b9"
     const self = this;
     wx.showLoading({
       title: '加载中',
@@ -99,9 +100,12 @@ Page({
     this.setData({
       hideBaitiao: false
     })
-    console.log()
   },
+   // 弹框
   popBuy(){
+    this.setData({
+      hideBuy: false
+    })
     console.log("显示")
   },
   updateSelectItem(e){
@@ -109,5 +113,64 @@ Page({
     baitiaoSelectItem:e.detail
   })
     console.log(e)
+  },
+    // 子组件传的  购买数量
+  updateCount(e){
+  
+    let partData = this.data.partData
+    partData.count = e.detail.val;
+    this.setData({
+      partData: partData
+    })
+    console.log(this.data.partData)
+  },
+  // 加入购物车
+  addCart(e){
+    // console.log('加入购物车')
+    const self = this;
+    wx:wx.getStorage({
+      key: 'cartInfo',
+      // 查到cartInfo 这个数据了，判断数组中是否拥有当前添加的商品
+      success(res) {
+        const cartArray = res.data;
+        // 拿到现在添加的商品对象
+        const partData = self.data.partData;
+        let isExit  = false;
+        cartArray.forEach(cart => {
+          if(cart.id == partData.id){
+            isExit = true;
+            cart.total += self.data.partData.count;
+            wx.setStorage({
+              key: 'cartInfo',
+              data: cartArray,
+            })
+          }
+        })
+
+        if(!isExit){
+          partData.total = self.data.partData.count;
+          cartArray.push(partData);
+          wx:wx.setStorage({
+            key: 'cartInfo',
+            data: cartArray
+          })
+        }
+      },
+      fail(res) {
+        let partData = self.data.partData;
+        partData.total = self.data.partData.count
+        let cartArray = [];
+        cartArray.push(partData);
+        wx.setStorage({
+          key: 'cartInfo',
+          data: cartArray,
+        })
+      }
+    }),
+    wx.showToast({
+      title: '加入购物车',
+      icon: 'success',
+      duration: 3000
+    })
   }
 })

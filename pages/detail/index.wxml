@@ -27,6 +27,22 @@
     ></infocell>
     <!--已选-->
     <infocell title="已选" desc="{{partData.count}}件"  bind:popView="popBuy"></infocell>
-    <IOU bind:updateSelect="updateSelectItem" list="{{baitiao}}" hideBaitiao="{{hideBaitiao}}"></IOU>
   </view>
+
+   <!-- 购物车 -->
+  <view class='btn_bar'>
+    <view class='icon_cart' bindtap='showCartView'>
+      <text class='badge' wx:if='{{badgeCount > 0}}'>{{badgeCount}}</text>
+      <image src='/image/cart.png'></image>
+      <text>购物车</text>
+    </view>
+    <view class='cart_btn'>
+      <button bindtap='addCart'>加入购物车</button>
+    </view>
+  </view>
+   <!-- 白条弹框 -->
+    <IOU bind:updateSelect="updateSelectItem" list="{{baitiao}}" hideBaitiao="{{hideBaitiao}}"></IOU>
+    <!-- 规格弹框 -->
+    <Buy bind:onGetCount="updateCount" bind:buyEvent="addCart" hideBuy="{{hideBuy}}" partData="{{partData}}"></Buy>
+    
 </view>
