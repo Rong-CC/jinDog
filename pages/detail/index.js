@@ -12,7 +12,8 @@ Page({
     baitiaoSelectItem:{
       desc: "【白条支付】 首单享立减优惠"
     },
-    hideBuy: true
+    hideBuy: true,
+    badgeCount: 0
   },
 
   /**
@@ -59,7 +60,15 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    const slef = this;
+    wx.getStorage({
+      key: 'cartInfo',
+      success: function(res) {
+        console.log(res)
+        const cartArray = res.data;
+        slef.setBadge(cartArray);
+      },
+    })
   },
 
   /**
@@ -109,14 +118,13 @@ Page({
     console.log("显示")
   },
   updateSelectItem(e){
-  this.setData({
-    baitiaoSelectItem:e.detail
-  })
+    this.setData({
+      baitiaoSelectItem:e.detail
+    })
     console.log(e)
   },
     // 子组件传的  购买数量
   updateCount(e){
-  
     let partData = this.data.partData
     partData.count = e.detail.val;
     this.setData({
@@ -147,7 +155,7 @@ Page({
           }
         })
 
-        if(!isExit){
+        if(!isExit){ // 不存在Storage 商品
           partData.total = self.data.partData.count;
           cartArray.push(partData);
           wx:wx.setStorage({
@@ -155,6 +163,8 @@ Page({
             data: cartArray
           })
         }
+        // 商品数量
+        self.setBadge(cartArray)
       },
       fail(res) {
         let partData = self.data.partData;
@@ -165,12 +175,19 @@ Page({
           key: 'cartInfo',
           data: cartArray,
         })
+        // 商品数量
+        self.setBadge(cartArray)
       }
     }),
     wx.showToast({
       title: '加入购物车',
       icon: 'success',
       duration: 3000
+    })
+  },
+  setBadge(item){
+    this.setData({
+      badgeCount: item.length
     })
   }
 })
