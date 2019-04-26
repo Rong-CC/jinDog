@@ -23,6 +23,7 @@
 }
 .search-input input{
   padding: 10rpx 30rpx;
+  width: 400rpx;
   background-color: #fff;
 }
 .search-icon{

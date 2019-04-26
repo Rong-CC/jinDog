@@ -34,7 +34,6 @@ Page({
         "content-type": "appLication/json"
       },
       success(res){
-        console.log(res.data)
         that.setData({
           swipers: res.data.swipers,
           logos: res.data.logos,

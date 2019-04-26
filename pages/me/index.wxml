@@ -1,10 +1,114 @@
-<!--pages/me/index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type='getUserInfo' bindgetuserinfo='getUserInfo'> 获取头像昵称 </button>
-    <block wx:else>
-      <image src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
+<!--pages/my/my.wxml-->
+<view class="my-content">
+   <view class="personage">
+      <open-data type="userAvatarUrl" class="portrait"></open-data>
+      <open-data type="userNickName" class="username"></open-data>
+   </view>
+   <view class="list maginTop">
+      <navigator hover-class="navigator-hover" url="/pages/index/index" class="list-box">
+        <view class="list-mune ">
+          <text class='iconfont icon-lianjie font'></text>
+          绑定手机号
+        </view>
+        <text class="iconfont icon-youbian"></text>
+      </navigator>
+   </view>
+
+   <view class="list maginTop">
+      <navigator hover-class="navigator-hover" url="/pages/index/index" class="list-box">
+        <view class="list-mune ">
+          <text class='iconfont icon-lianjie font'></text>
+          绑定邮箱
+        </view>
+        <text class="iconfont icon-youbian"></text>
+      </navigator>
+   </view>
+
+   <view class="list">
+      <navigator hover-class="navigator-hover" url="/pages/index/index" class="list-box">
+        <view class="list-mune ">
+          <text class='iconfont icon-dingdan font'></text>
+          我的订单
+        </view>
+        <text class="iconfont icon-youbian"></text>
+      </navigator>
+   </view>
+
+   <view class="list">
+      <navigator hover-class="navigator-hover" url="/pages/index/index" class="list-box">
+        <view class="list-mune ">
+          <text class='iconfont icon-youhuiquan font'></text>
+          优惠券
+        </view>
+        <text class="iconfont icon-youbian"></text>
+      </navigator>
+   </view>
+   
+   <view class="list">
+      <navigator hover-class="navigator-hover" url="/pages/index/index" class="list-box">
+        <view class="list-mune ">
+          <text class='iconfont icon-huiyuanqia font'></text>
+          会员卡
+        </view>
+        <text class="iconfont icon-youbian"></text>
+      </navigator>
+   </view>
+   
+   <view class="list maginTop">
+      <navigator hover-class="navigator-hover" url="/pages/index/index" class="list-box">
+        <view class="list-mune ">
+          <text class='iconfont icon-yijianfankui1 font'></text>
+          意见反馈
+        </view>
+        <text class="iconfont icon-youbian"></text>
+      </navigator>
+      
+   </view>
+
+   <!-- <view class="list">
+      <navigator hover-class="navigator-hover" url="/pages/index/index" class="list-box">
+        <view class="list-mune ">
+          <text class='iconfont icon-huiyuanqia font'></text>
+          会员卡
+        </view>
+        <text class="iconfont icon-youbian"></text>
+      </navigator>
+   </view>
+   
+   <view class="list maginTop">
+      <navigator hover-class="navigator-hover" url="/pages/index/index" class="list-box">
+        <view class="list-mune ">
+          <text class='iconfont icon-yijianfankui1 font'></text>
+          意见反馈
+        </view>
+        <text class="iconfont icon-youbian"></text>
+      </navigator>
+   </view> -->
+
+   <!-- <view class="list maginTop">
+      <navigator hover-class="navigator-hover" url="/pages/index/index" class="list-box">
+        <view class="list-mune ">
+          <text class='iconfont icon-yijianfankui1 font'></text>
+          意见反馈
+        </view>
+        <text class="iconfont icon-youbian"></text>
+      </navigator>
+   </view>
+
+
+ <view class="list maginTop">
+      <navigator hover-class="navigator-hover" url="/pages/index/index" class="list-box">
+        <view class="list-mune ">
+          <text class='iconfont icon-yijianfankui1 font'></text>
+          意见反馈
+        </view>
+        <text class="iconfont icon-youbian"></text>
+      </navigator>
+   </view>
+    -->
+
+  
+  <view class="loading" hidden="{{!searchLoading}}">正在载入更多...</view>
+
+   
 </view>

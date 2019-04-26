@@ -40,17 +40,21 @@ Component({
         count : count
       })
       this.triggerEvent("myevent", myEventDetail);
+
+      this.triggerEvent("subevent");
       // console.log(13)
     },
+
     add(e){
       let count = this.data.count;
       this.setData({
         count: ++count
       })
-      var myEventDetail ={
+      var myEventDetail = {
         val: count
       }
       this.triggerEvent("myevent", myEventDetail);
+      this.triggerEvent('addevent')
       // console.log(12)
     }
   }
