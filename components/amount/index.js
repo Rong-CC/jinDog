@@ -4,7 +4,7 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    count:{
+    count: { // 商品数量
       type: Number,
       value: 1
     }
@@ -21,41 +21,36 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    imputChangeHandle(e){
-      console.log(e.detail.value)
-      var value = e.detail.value;
+    inputChangeHandle: function (event) {
+      var val = event.detail.value; //通过这个传递数据
       var myEventDetail = {
-        val : value
+        val: val
       }
-      // 数据改变时，向父组件传递新数据
-      this.triggerEvent("myevent",myEventDetail);
+      // 数据改变时 向父组件传递新数据
+      this.triggerEvent('myevent', myEventDetail)
     },
-    subtract(e){
-      let count = this.data.count;
-      count > 1 ? count--: 1;
-      var myEventDetail = {
-        val : count
-      }
+    subtract: function () {
+      var count = this.data.count;
+      count > 1 ? count-- : 1
       this.setData({
-        count : count
+        count: count
       })
-      this.triggerEvent("myevent", myEventDetail);
-
-      this.triggerEvent("subevent");
-      // console.log(13)
+      var myEventDetail = {
+        val: count
+      }
+      this.triggerEvent('myevent', myEventDetail)
+      this.triggerEvent('subevent')
     },
-
-    add(e){
-      let count = this.data.count;
+    add: function () {
+      var count = this.data.count;
       this.setData({
         count: ++count
       })
       var myEventDetail = {
         val: count
       }
-      this.triggerEvent("myevent", myEventDetail);
+      this.triggerEvent('myevent', myEventDetail)
       this.triggerEvent('addevent')
-      // console.log(12)
     }
   }
 })
